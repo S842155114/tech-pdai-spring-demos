@@ -16,6 +16,7 @@ import javax.annotation.Resource;
 @RequestMapping("/user")
 public class UserController {
 
+    // 注意：这里@Autowired是报错的，因为@Autowired按照类型（byType）注入的
     @Resource
     private RedisTemplate<String, User> redisTemplate;
 
