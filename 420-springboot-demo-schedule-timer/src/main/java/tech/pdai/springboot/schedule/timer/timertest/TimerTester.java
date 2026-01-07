@@ -30,6 +30,9 @@ public class TimerTester {
         timer.cancel();
     }
 
+    /**
+     * 延迟0.5秒开始执行，每秒执行一次， 10秒后停止。
+     */
     @SneakyThrows
     public static void timerPeriod() {
         // start timer
@@ -38,7 +41,7 @@ public class TimerTester {
             @SneakyThrows
             public void run() {
                 log.info("timer-period-task @{}", LocalDateTime.now());
-                Thread.sleep(100); // 执行时间大于Period间隔时间
+                Thread.sleep(100); // 可以设置的执行时间, 来测试当执行时间大于执行周期时任务执行的变化
             }
         }, 500, 1000);
 
@@ -49,6 +52,10 @@ public class TimerTester {
         timer.cancel();
     }
 
+    /**
+     * 延迟0.5秒开始执行，每秒执行一次， 10秒后停止。
+     * 同时测试某次任务执行时间大于周期时间的变化。
+     */
     @SneakyThrows
     public static void timerFixedRate() {
         // start timer

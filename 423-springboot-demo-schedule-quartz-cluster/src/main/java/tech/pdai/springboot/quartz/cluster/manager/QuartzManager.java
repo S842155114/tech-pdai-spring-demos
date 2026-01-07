@@ -145,7 +145,7 @@ public class QuartzManager {
         try {
             sched.pauseTrigger(TriggerKey.triggerKey(jobName, jobGroupName));
             sched.unscheduleJob(TriggerKey.triggerKey(jobName, jobGroupName));
-            sched.deleteJob(new JobKey(jobName, jobGroupName));
+            sched.deleteJob(JobKey.jobKey(jobName, jobGroupName));
         } catch (Exception e) {
             e.printStackTrace();
         }
